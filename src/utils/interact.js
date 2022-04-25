@@ -10,7 +10,7 @@ const contractAddress = "0x4C4a07F737Bf57F6632B6CAB089B78f62385aCaE";
 
 export const mintNFT = async(url, name, description) => {
     //error handling
-    if (url.trim() == "" || (name.trim() == "" || description.trim() == "")) { 
+    if (url.trim() === "" || (name.trim() === "" || description.trim() === "")) { 
            return {
                success: false,
                status: "❗Please make sure all fields are completed before minting.",
@@ -18,6 +18,7 @@ export const mintNFT = async(url, name, description) => {
      }
    
      //make metadata
+     // eslint-disable-next-line no-new-object
      const metadata = new Object();
      metadata.name = name;
      metadata.image = url;
@@ -33,7 +34,7 @@ export const mintNFT = async(url, name, description) => {
      } 
      const tokenURI = pinataResponse.pinataUrl;  
 
-     window.contract = await new web3.eth.Contract(contractABI, contractAddress);
+     window.contract = new web3.eth.Contract(contractABI, contractAddress);
 
      //set up your Ethereum transaction
  const transactionParameters = {
@@ -87,7 +88,7 @@ export const connectWallet = async () => {
             <p>
               {" "}
               🦊{" "}
-              <a target="_blank" href={`https://metamask.io/download.html`}>
+              <a target="_blank" rel="noreferrer" href={`https://metamask.io/download.html`}>
                 You must install Metamask, a virtual Ethereum wallet, in your
                 browser.
               </a>
@@ -129,7 +130,7 @@ export const connectWallet = async () => {
             <p>
               {" "}
               🦊{" "}
-              <a target="_blank" href={`https://metamask.io/download.html`}>
+              <a target="_blank" rel="noreferrer" href={`https://metamask.io/download.html`}>
                 You must install Metamask, a virtual Ethereum wallet, in your
                 browser.
               </a>
