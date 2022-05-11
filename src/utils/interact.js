@@ -52,7 +52,7 @@ const txHash = await window.ethereum
     });
 return {
     success: true,
-    status: "✅ Check out your transaction on Etherscan: https://ropsten.etherscan.io/tx/" + txHash
+    status: "✅ Check out your transaction on Polygonscan: https://mumbai.polygonscan.com/tx/" + txHash
 }
 } catch (error) {
 return {

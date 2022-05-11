@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useMoralis } from "react-moralis";
 // import { connectWallet } from "./utils/interact.js";
 // import {
 //   connectWallet,
@@ -60,8 +61,10 @@ const Minter = (props) => {
     setStatus(status);
 };
 
+const { logout } = useMoralis();
   return (
     <div className="Minter">
+      
       <button id="walletButton" onClick={connectWalletPressed}>
         {walletAddress.length > 0 ? (
           "Connected: " +
@@ -71,6 +74,9 @@ const Minter = (props) => {
         ) : (
           <span>Connect Wallet</span>
         )}
+      </button>
+      <button id="walletButton" onClick={logout}>
+          <span>Log Out</span>
       </button>
 
       <br></br>
